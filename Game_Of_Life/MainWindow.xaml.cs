@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -92,6 +93,8 @@ namespace Game_Of_Life
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
+            StopButton_Click(sender, e);
+            StepIndicator.Text = "0";
             for (int i = 0; i < GridSize; i++)
             {
                 for (int j = 0; j < GridSize; j++)
@@ -120,6 +123,8 @@ namespace Game_Of_Life
         private void Timer_Tick(object sender, EventArgs e)
         {
             gameLogic.CalculateNextGeneration();
+            //increment text
+            StepIndicator.Text = (int.Parse(StepIndicator.Text) + 1).ToString(); 
             UpdateVisualGrid();
         }
 
@@ -134,6 +139,40 @@ namespace Game_Of_Life
                     Rectangle cell = cells[i, j];
                     cell.Fill = grid[i, j].IsAlive ? Brushes.Black : Brushes.White;
                 }
+            }
+        }
+        
+        private void GenerateRandomGrid(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+
+            for (int i = 0; i < GridSize; i++)
+            {
+                for (int j = 0; j < GridSize; j++)
+                {
+                    cellStates[i, j] = random.Next(0, 2) == 1;
+                    cells[i, j].Fill = cellStates[i, j] ? Brushes.Black : Brushes.White;
+                    gameLogic.GetGrid()[i, j].IsAlive = cellStates[i, j];
+                }
+            }
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F9:
+                    StopButton_Click(sender, e);
+                    GenerateRandomGrid(sender, e);
+                    break;
+                case Key.Escape:
+                    Exit(sender, e);
+                    break;
             }
         }
     }
