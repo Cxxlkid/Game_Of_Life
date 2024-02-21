@@ -83,11 +83,13 @@ namespace Game_Of_Life
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            StartBtn.Background = Brushes.LightGreen;
             timer.Start();
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
+            StartBtn.Background = Brushes.LightGray;
             timer.Stop();
         }
 
