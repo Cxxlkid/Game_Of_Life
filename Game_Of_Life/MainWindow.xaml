@@ -20,7 +20,6 @@
                     <MenuItem Header="_Invert (F8)" Click="InvertGrid" />
                 </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
         </DockPanel>
 
         <Grid x:Name="GameGrid" Grid.Row="0" Margin="5" />
