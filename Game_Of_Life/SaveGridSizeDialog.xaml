@@ -1,0 +1,13 @@
+<Window x:Class="Game_Of_Life.SaveGridSizeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="SaveGridSizeDialog" Height="150" Width="300">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Text="Enter the size of the grid (need restart)" />
+        <TextBox x:Name="InputTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" TextChanged="CheckInput"/>
+        <Button x:Name="OkButton" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,7" Click="OkButton_Click" />
+    </Grid>
+</Window>

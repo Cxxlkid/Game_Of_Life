@@ -12,21 +12,19 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Exit"  Click="Exit"/>
+                    <MenuItem Header="_Change Size (F2)"  Click="ChangeSize"/>
+                    <MenuItem Header="_Exit (ESC)"  Click="Exit"/>
                 </MenuItem>
                 <MenuItem Header="_Tools">
                     <MenuItem Header="_Random setup (F9)" Click="GenerateRandomGrid" />
+                    <MenuItem Header="_Invert (F8)" Click="InvertGrid" />
                 </MenuItem>
             </Menu>
             <TextBox AcceptsReturn="True" />
         </DockPanel>
 
-        <!-- Grid to represent the cells of the Game of Life -->
-        <Grid x:Name="GameGrid" Grid.Row="0" Margin="5">
-            <!-- Dynamically generated cells will be added here -->
-        </Grid>
-
-        <!-- StackPanel for control buttons -->
+        <Grid x:Name="GameGrid" Grid.Row="0" Margin="5" />
+        
         <StackPanel Grid.Row="1" Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
             <!-- Start Button -->
             <Button Content="Start" x:Name="StartBtn" Click="StartButton_Click" Margin="0,0,5,0" />

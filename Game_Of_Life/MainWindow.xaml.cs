@@ -7,12 +7,13 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Game_Of_Life.Logic;
 using Game_Of_Life.Models;
+using Game_Of_Life.Utils;
 
 namespace Game_Of_Life
 {
     public partial class MainWindow : Window
     {
-        private int GridSize = 10; // Set your initial grid size
+        private int GridSize = SaveUtil.Load().X;
         private Rectangle[,] cells;
         private DispatcherTimer timer;
         private bool[,] cellStates;
@@ -175,6 +176,32 @@ namespace Game_Of_Life
                 case Key.Escape:
                     Exit(sender, e);
                     break;
+                case Key.F2:
+                    ChangeSize(sender, e);
+                    break;
+                case Key.F8:
+                    InvertGrid(sender, e);
+                    break;
+            }
+        }
+
+        private void ChangeSize(object sender, RoutedEventArgs e)
+        {
+            //run dialog SaveGridSizeDialog
+            var dialog = new SaveGridSizeDialog();
+            dialog.ShowDialog();
+        }
+
+        private void InvertGrid(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < GridSize; i++)
+            {
+                for (int j = 0; j < GridSize; j++)
+                {
+                    cellStates[i, j] = !cellStates[i, j];
+                    cells[i, j].Fill = cellStates[i, j] ? Brushes.Black : Brushes.White;
+                    gameLogic.GetGrid()[i, j].IsAlive = cellStates[i, j];
+                }
             }
         }
     }

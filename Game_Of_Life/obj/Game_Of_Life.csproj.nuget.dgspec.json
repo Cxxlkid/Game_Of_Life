@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kilia\\Desktop\\ESTIAM COURS\\C#\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj": {}
+    "N:\\csharp_cours\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kilia\\Desktop\\ESTIAM COURS\\C#\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj": {
+    "N:\\csharp_cours\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kilia\\Desktop\\ESTIAM COURS\\C#\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj",
+        "projectUniqueName": "N:\\csharp_cours\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj",
         "projectName": "Game_Of_Life",
-        "projectPath": "C:\\Users\\kilia\\Desktop\\ESTIAM COURS\\C#\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj",
-        "packagesPath": "C:\\Users\\kilia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kilia\\Desktop\\ESTIAM COURS\\C#\\Game_Of_Life\\Game_Of_Life\\obj\\",
+        "projectPath": "N:\\csharp_cours\\Game_Of_Life\\Game_Of_Life\\Game_Of_Life.csproj",
+        "packagesPath": "C:\\Users\\noefa\\.nuget\\packages\\",
+        "outputPath": "N:\\csharp_cours\\Game_Of_Life\\Game_Of_Life\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kilia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\noefa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\kilia\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\noefa\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
