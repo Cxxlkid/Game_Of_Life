@@ -65,6 +65,7 @@ namespace Game_Of_Life
                     };
 
                     cell.MouseLeftButtonDown += Cell_Click;
+                    cell.Cursor = Cursors.Hand;
                     GameGrid.Children.Add(cell);
                     cells[i, j] = cell;
                     cellStates[i, j] = false;
@@ -78,7 +79,7 @@ namespace Game_Of_Life
         private void InitializeTimer()
         {
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(2); // Set your desired interval
+            timer.Interval = TimeSpan.FromSeconds(1.5);
             timer.Tick += Timer_Tick;
         }
 
@@ -103,6 +104,7 @@ namespace Game_Of_Life
                 for (int j = 0; j < GridSize; j++)
                 {
                     cellStates[i, j] = false;
+                    gameLogic.GetGrid()[i,j].IsAlive = false;
                     cells[i, j].Fill = Brushes.White;
                 }
             }
@@ -126,7 +128,6 @@ namespace Game_Of_Life
         private void Timer_Tick(object sender, EventArgs e)
         {
             gameLogic.CalculateNextGeneration();
-            //increment text
             StepIndicator.Text = (int.Parse(StepIndicator.Text) + 1).ToString(); 
             UpdateVisualGrid();
         }
@@ -187,9 +188,10 @@ namespace Game_Of_Life
 
         private void ChangeSize(object sender, RoutedEventArgs e)
         {
-            //run dialog SaveGridSizeDialog
             var dialog = new SaveGridSizeDialog();
             dialog.ShowDialog();
+    
+            StepIndicator.Text = "0";
         }
 
         private void InvertGrid(object sender, RoutedEventArgs e)
@@ -203,6 +205,8 @@ namespace Game_Of_Life
                     gameLogic.GetGrid()[i, j].IsAlive = cellStates[i, j];
                 }
             }
+            
+            StepIndicator.Text = "0";
         }
     }
 }

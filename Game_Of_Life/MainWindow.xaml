@@ -22,7 +22,7 @@
             </Menu>
         </DockPanel>
 
-        <Grid x:Name="GameGrid" Grid.Row="0" Margin="5" />
+        <Grid x:Name="GameGrid" Grid.Row="0" Margin="5" Width="Auto" Height="Auto"/>
         
         <StackPanel Grid.Row="1" Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
             <!-- Start Button -->
@@ -31,11 +31,16 @@
             <!-- Stop Button -->
             <Button Content="Stop" Click="StopButton_Click" Margin="0,0,5,0" />
 
+             
+            <!-- FastForward Button -->
+            <RepeatButton Delay="1000" Interval="10" Margin="0,0,5,0" Click="Timer_Tick" Content="FastForward" />
+            
             <!-- Reset Button -->
             <Button Content="Reset" Click="ResetButton_Click" />
             
             <!-- Step indicator -->
             <TextBlock x:Name="StepIndicator" Margin="20,0,0,0" >0</TextBlock>
+           
         </StackPanel>
     </Grid>
 </Window>
